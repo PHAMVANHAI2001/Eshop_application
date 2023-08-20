@@ -1,4 +1,4 @@
-package com.eshop.app.model;
+package com.eshop.app.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -14,6 +14,7 @@ import java.time.Instant;
 @Table(name = "product")
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 

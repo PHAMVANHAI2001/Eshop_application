@@ -1,4 +1,4 @@
-package com.eshop.app.model;
+package com.eshop.app.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -6,7 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import java.time.Instant;
+import java.sql.Timestamp;
 
 @Getter
 @Setter
@@ -14,6 +14,7 @@ import java.time.Instant;
 @Table(name = "`order`")
 public class Order {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
@@ -26,7 +27,7 @@ public class Order {
     private User user;
 
     @Column(name = "createDate", nullable = false)
-    private Instant createDate;
+    private Timestamp createDate;
 
     @Column(name = "status", nullable = false)
     private Integer status;

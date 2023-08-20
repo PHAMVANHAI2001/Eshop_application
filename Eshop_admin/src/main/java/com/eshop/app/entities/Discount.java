@@ -1,13 +1,10 @@
-package com.eshop.app.model;
+package com.eshop.app.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.Instant;
+import java.sql.Timestamp;
 
 @Getter
 @Setter
@@ -15,6 +12,7 @@ import java.time.Instant;
 @Table(name = "discount")
 public class Discount {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
@@ -25,15 +23,15 @@ public class Discount {
     private Integer saleOff;
 
     @Column(name = "startDate", nullable = false)
-    private Instant startDate;
+    private Timestamp startDate;
 
     @Column(name = "endDate", nullable = false)
-    private Instant endDate;
+    private Timestamp endDate;
 
     @Column(name = "active", nullable = false)
     private Boolean active = false;
 
     @Column(name = "createDate", nullable = false)
-    private Instant createDate;
+    private Timestamp createDate;
 
 }

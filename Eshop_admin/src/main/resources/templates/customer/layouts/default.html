@@ -1,0 +1,39 @@
+<!doctype html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/customer/favicon.ico" />
+<!--    <title layout:fragment="head-title">
+      Electronics Store - Layout Default
+    </title>-->
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Electronics Store</title>
+    <th:block th:replace="~{/customer/components/head-link::copy}"></th:block>
+  </head>
+  <body class="handheld-toolbar-enabled">
+    <!-- Sign in / sign up modal-->
+    <div th:replace="~{/customer/components/account-auth-modal::copy}"></div>
+    <main class="page-wrapper">
+      <!-- Quick View Modal-->
+      <div th:replace="~{/customer/components/quick-view-modal::copy}"></div>
+      <!-- Navbar Electronics Store -->
+      <header th:replace="~{/customer/components/navbar::copy}"></header>
+      <!-- Page Content-->
+      <section layout:fragment="body-content">
+        <p>Your page content goes here</p>
+      </section>
+    </main>
+    <!-- Footer -->
+    <div th:replace="~{/customer/components/footer::copy}"></div>
+    <th:block th:replace="~{/customer/components/body-script::copy}"></th:block>
+  </body>
+</html>
